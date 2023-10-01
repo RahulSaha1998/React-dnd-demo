@@ -19,10 +19,18 @@ const ListTask = ({ tasks, setTasks }) => {
   const statuses = ["todo", "inprogress", "closed"];
 
   return (
-    <div>
-      <h2>Hello from List Tasks</h2>
+    <div className="flex gap-16">
       {statuses.map((status, index) => (
-        <Section key={index} status={status}></Section>
+        <Section
+          key={index}
+          status={status}
+          tasks={tasks}
+          setTasks={setTasks}
+          todos={todos}
+          inProgress={inProgress}
+          closed={closed}
+        >
+        </Section>
       ))}
     </div>
   );

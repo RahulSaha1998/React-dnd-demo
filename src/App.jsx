@@ -16,8 +16,8 @@ function App() {
   return (
     <>
       <Toaster />
-      <div 
-      className='bg-slate-100 w-screen h-screen flex flex-col items-center gap-16 pt-32'>
+      <div
+        className='bg-slate-100 w-screen h-screen flex flex-col items-center gap-16 pt-32'>
         <CreateTask tasks={tasks} setTasks={setTasks} />
         <ListTask tasks={tasks} setTasks={setTasks} />
       </div>
