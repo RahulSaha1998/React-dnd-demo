@@ -7,7 +7,7 @@ const Section = ({ status, tasks, setTasks, todos, inProgress, closed }) => {
 
     const [{ isOver }, drop] = useDrop(() => ({
         accept: "task",
-        drop: (item) => addItemToSection(item.id),
+        drop: (item) => addItemToSection(item?.id),
         collect: (monitor) => ({
             isOver: !!monitor.isOver()
         })
@@ -33,8 +33,8 @@ const Section = ({ status, tasks, setTasks, todos, inProgress, closed }) => {
     const addItemToSection = (id) => {
         setTasks(prev => {
             console.log("prev", prev);
-            const mTasks = prev.map(t => {
-                if (t.id === id) {
+            const mTasks = prev?.map(t => {
+                if (t?.id === id) {
                     return { ...t, status: status }
                 }
                 return t;
@@ -51,10 +51,10 @@ const Section = ({ status, tasks, setTasks, todos, inProgress, closed }) => {
             ref={drop}
             className={`w-64 rounded-md p-2 ${isOver ? 'bg-slate-200' : ""}`}
         >
-            <Header text={text} bg={bg} count={tasksToMap.length} />
-            {tasksToMap.length > 0 && tasksToMap.map((task) => <Task
+            <Header text={text} bg={bg} count={tasksToMap?.length} />
+            {tasksToMap?.length > 0 && tasksToMap?.map((task) => <Task
                 task={task}
-                key={task.id}
+                key={task?.id}
                 tasks={tasks}
                 setTasks={setTasks} />)}
         </div>

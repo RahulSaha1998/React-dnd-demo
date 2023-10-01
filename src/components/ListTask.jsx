@@ -7,9 +7,9 @@ const ListTask = ({ tasks, setTasks }) => {
   const [closed, setClosed] = useState([]);
 
   useEffect(() => {
-    const fTodos = tasks.filter((task) => task.status === "todo");
-    const fInProgress = tasks.filter((task) => task.status === "inprogress");
-    const fClosed = tasks.filter((task) => task.status === "closed");
+    const fTodos = tasks?.filter((task) => task?.status === "todo");
+    const fInProgress = tasks?.filter((task) => task?.status === "inprogress");
+    const fClosed = tasks?.filter((task) => task?.status === "closed");
 
     setTodos(fTodos);
     setInProgress(fInProgress);
@@ -20,7 +20,7 @@ const ListTask = ({ tasks, setTasks }) => {
 
   return (
     <div className="flex gap-16">
-      {statuses.map((status, index) => (
+      {statuses?.map((status, index) => (
         <Section
           key={index}
           status={status}

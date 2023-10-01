@@ -6,7 +6,7 @@ const Task = ({ task, tasks, setTasks }) => {
 
     const [{ isDragging }, drag] = useDrag(() => ({
         type: "task",
-        item: {id: task.id},
+        item: {id: task?.id},
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging()
         })
@@ -16,7 +16,7 @@ const Task = ({ task, tasks, setTasks }) => {
 
     const handleRemove = (id) => {
         console.log(id);
-        const fTasks = tasks.filter(t => t.id !== id);
+        const fTasks = tasks?.filter(t => t?.id !== id);
         localStorage.setItem('tasks', JSON.stringify(fTasks))
         setTasks(fTasks)
         toast("Task removed", { icon: "💀" })
@@ -29,9 +29,9 @@ const Task = ({ task, tasks, setTasks }) => {
             className={`relative p-4 mt-8 shadow-md rounded
             ${isDragging ? "opacity-25" : "opacity-100"}
             cursor-grab`}>
-            <h2>{task.name}</h2>
+            <h2>{task?.name}</h2>
             <button
-                onClick={() => handleRemove(task.id)}
+                onClick={() => handleRemove(task?.id)}
                 className='absolute bottom-1 right-1 text-slate-400'>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
